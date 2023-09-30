@@ -1,0 +1,6 @@
+7 -> nesta linha eu decidi criar o meu próprio leitor de arquivo, ao invés de utilizar o que foi fornecido pelo dataset.
+    eu adicionei no arquivo dataset.csv os index's: Index e Tongue twister
+    como eu vou utilizar apenas os trava línguas, eu preciso apenas de sua coluna. para isto, eu utilizei o seguinte material: https://pandas.pydata.org/docs/getting_started/intro_tutorials/10_text_data.html#min-tut-10-text
+    porém, eu fiquei quebrando a cabeça, pois ainda aparecia os índices, coisa que eu não desejava, além disto, já tinha implementado o material anterior
+    felizmente, eu descobri que esses índices são do próprio pandas, e não os índices do csv
+
