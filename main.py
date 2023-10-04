@@ -1,10 +1,10 @@
-from string import punctuation
-import numpy as np
-import os
-import pandas as pd
-from collections import Counter
+# from string import punctuation
+# import numpy as np
+# import os
+# import pandas as pd
+# from collections import Counter
 from src.utilities import *
 
-df = read_file()
+db = read_file()
 
-
+qtd_words_tonguer_twister(db)
