@@ -8,3 +8,8 @@ from src.utilities import *
 db = read_file()
 
 qtd_words_tonguer_twister(db)
+
+# print(repetition_letters(db))
+
+
+
