@@ -11,6 +11,4 @@ qtd_words = counter_words(tonguer_twister_db)
 
 letters_most_popular = repetition_letters(tonguer_twister_db)
 
-print(letters_most_popular)
-
 
