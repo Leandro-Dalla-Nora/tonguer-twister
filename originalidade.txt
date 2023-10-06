@@ -15,6 +15,8 @@ Estes comentários são refetentes ao arquivo utilities.py
         lista.append(Counter(frase.lower().replace(' ', ''))).most_common(2)), já assim retorna os 2 caracteres que mais se repetem para cada uma das 605 frases
     Por este motivo, fui forçado a utilizar o for normal, sem list compration, pois a medida de complexidade de um trava língua é feita, obviamente, por cada
     unidade, e não pela totalidade deles.
+    Agora eu percebi que posso usar list comprehation com o Counter, deste modo: [Counter(frase.lower().replace(' ', ''))]. Assim, retorna uma lista das letras
+    que mais se repetem para cada trava-língua.
 
 
 
