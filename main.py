@@ -5,11 +5,12 @@
 # from collections import Counter
 from src.utilities import *
 
-db = read_file()
+tonguer_twister_db = read_file()
 
-qtd_words_tonguer_twister(db)
+qtd_words = counter_words(tonguer_twister_db)
 
-# print(repetition_letters(db))
+letters_most_popular = repetition_letters(tonguer_twister_db)
 
+print(letters_most_popular)
 
 
