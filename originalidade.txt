@@ -18,12 +18,15 @@ Estes comentários são refetentes ao arquivo utilities.py
     unidade, e não pela totalidade deles.
     Agora eu percebi que posso usar list comprehation com o Counter, deste modo: [Counter(frase.lower().replace(' ', '')) for frase in db]. Assim, retorna uma
     lista das letras que mais se repetem para cada trava-língua.
+    Decidi mudar o retorno, para ficar mais fácil de calcular o grau de dificuldade posteriormente
 
 
 
 fontes:
 https://docs.python.org/3/library/csv.html
 https://docs.python.org/3/library/collections.html#collections.Counter
-
+https://www.w3schools.com/python/python_tuples_access.asp
+https://stackoverflow.com/questions/9766608/zipwith-analogue-in-python
+https://docs.python.org/pt-br/3/library/operator.html
 
 
