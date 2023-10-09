@@ -8,10 +8,6 @@ letters_most_popular = degree_letters_repetition(tonguer_twister_db, qtd_words)
 
 difficulty_level = calculate_difficulty(qtd_words, letters_most_popular)
 
+result_presentation(difficulty_level, tonguer_twister_db)
 
-hardest = find_hardest(difficulty_level)
-print(tonguer_twister_db[hardest])
-
-easily = find_easily(difficulty_level)
-print(tonguer_twister_db[easily])
 

@@ -28,11 +28,16 @@ def calculate_difficulty(qtd_words: list[int], difficulty_tonguer_twister: list[
     return list(map(operator.mul, difficulty_tonguer_twister, qtd_words))
 
 
-def find_hardest(diffiulty: list[float]) -> int:
-    return diffiulty.index(max(diffiulty))
+def find_hardest(diffiulty: list[float], db: list[str]) -> str:
+    return db[diffiulty.index(max(diffiulty))]
 
 
-def find_easily(diffiulty: list[float]) -> int:
-    return diffiulty.index(min(diffiulty))
+def find_easily(diffiulty: list[float], db: list[str]) -> str:
+    return db[diffiulty.index(min(diffiulty))]
 
+
+def result_presentation(difficulty_level: list[float], tonguer_twister_db: list[str]) -> None:
+    print('\n'.join([f"{difficulty:.2f}: {tonguer_twister}" for difficulty, tonguer_twister in zip(difficulty_level, tonguer_twister_db)]))
+    print(f'\nHardest: \n{find_hardest(difficulty_level, tonguer_twister_db)}')
+    print(f'Easily: \n{find_easily(difficulty_level, tonguer_twister_db)}')
 
