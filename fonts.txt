@@ -1,0 +1,15 @@
+ @misc{dweep joshipura_2020,
+	title={Tongue Twister Dataset},
+	url={https://www.kaggle.com/dsv/1777149},
+	DOI={10.34740/KAGGLE/DSV/1777149},
+	publisher={Kaggle},
+	author={Dweep Joshipura},
+	year={2020}
+}
+
+https://docs.python.org/3/library/csv.html
+https://docs.python.org/3/library/collections.html#collections.Counter
+https://www.w3schools.com/python/python_tuples_access.asp
+https://stackoverflow.com/questions/9766608/zipwith-analogue-in-python
+https://docs.python.org/pt-br/3/library/operator.html
+https://www.geeksforgeeks.org/python-convert-two-lists-into-a-dictionary/
