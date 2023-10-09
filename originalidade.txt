@@ -21,12 +21,10 @@ Estes comentários são refetentes ao arquivo utilities.py
     Decidi mudar o retorno, para ficar mais fácil de calcular o grau de dificuldade posteriormente
 
 
-
-fontes:
-https://docs.python.org/3/library/csv.html
-https://docs.python.org/3/library/collections.html#collections.Counter
-https://www.w3schools.com/python/python_tuples_access.asp
-https://stackoverflow.com/questions/9766608/zipwith-analogue-in-python
-https://docs.python.org/pt-br/3/library/operator.html
-https://www.geeksforgeeks.org/python-convert-two-lists-into-a-dictionary/
-
+    Roteiro de apresentação:
+A percebi que a dificuldade de um trava-língua se baseia em seu tamanho e pelo grau de repetição de letras.
+Para calcular o grau de repetição das letras:
+    1 - primeiro contar quantas palavras existem
+    2 - descobrir quais são as 2 letras mais comuns
+    3 - descobrir o grau de repetição destas 2 letras no trava-língua e multiplicar este resultado
+    4 - multiplicar o resultado anterior com a quantidade de palavras existentes, resultando em um valor que quanto maior, mais difícil é
