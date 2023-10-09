@@ -6,6 +6,12 @@ qtd_words = counter_words(tonguer_twister_db)
 
 letters_most_popular = degree_letters_repetition(tonguer_twister_db, qtd_words)
 
-print(calculate_difficulty(qtd_words, letters_most_popular))
+difficulty_level = calculate_difficulty(qtd_words, letters_most_popular)
 
+
+hardest = find_hardest(difficulty_level)
+print(tonguer_twister_db[hardest])
+
+easily = find_easily(difficulty_level)
+print(tonguer_twister_db[easily])
 

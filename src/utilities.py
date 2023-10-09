@@ -1,6 +1,4 @@
 import operator
-from typing import List, Tuple
-
 import pandas as pd
 from collections import Counter
 
@@ -28,5 +26,13 @@ def degree_letters_repetition(db: list[str], qtd_words: list[int]) -> list[float
 
 def calculate_difficulty(qtd_words: list[int], difficulty_tonguer_twister: list[float]) -> list[float]:
     return list(map(operator.mul, difficulty_tonguer_twister, qtd_words))
+
+
+def find_hardest(diffiulty: list[float]) -> int:
+    return diffiulty.index(max(diffiulty))
+
+
+def find_easily(diffiulty: list[float]) -> int:
+    return diffiulty.index(min(diffiulty))
 
 
