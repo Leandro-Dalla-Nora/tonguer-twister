@@ -13,3 +13,4 @@ https://www.w3schools.com/python/python_tuples_access.asp
 https://stackoverflow.com/questions/9766608/zipwith-analogue-in-python
 https://docs.python.org/pt-br/3/library/operator.html
 https://www.geeksforgeeks.org/python-convert-two-lists-into-a-dictionary/
+https://docs.python.org/pt-br/3/howto/functional.html
