@@ -37,6 +37,7 @@ def find_easily(diffiulty: list[float], db: list[str]) -> str:
 
 
 def result_presentation(difficulty_level: list[float], tonguer_twister_db: list[str]) -> None:
+    print('Difficulty level: tonguer-twister')
     print('\n'.join([f"{difficulty:.2f}: {tonguer_twister}" for difficulty, tonguer_twister in zip(difficulty_level, tonguer_twister_db)]))
     print(f'\nHardest: \n{find_hardest(difficulty_level, tonguer_twister_db)}')
     print(f'Easily: \n{find_easily(difficulty_level, tonguer_twister_db)}')

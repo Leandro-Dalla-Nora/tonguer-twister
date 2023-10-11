@@ -1,30 +1,40 @@
 Estes comentários são refetentes ao arquivo utilities.py
 
-7 -> nesta linha eu decidi criar o meu próprio leitor de arquivo, ao invés de utilizar o que foi fornecido pelo dataset.
+6 -> nesta linha eu decidi criar o meu próprio leitor de arquivo, ao invés de utilizar o que foi fornecido pelo dataset.
     eu adicionei no arquivo dataset.csv os index's: Index e Tongue twister
-    como eu vou utilizar apenas os trava línguas, eu preciso apenas de sua coluna. para isto, eu utilizei o seguinte material: https://pandas.pydata.org/docs/getting_started/intro_tutorials/10_text_data.html#min-tut-10-text
+    como eu vou utilizar apenas os trava-línguas, eu preciso apenas de sua coluna. para isto, eu utilizei o seguinte material: https://pandas.pydata.org/docs/getting_started/intro_tutorials/10_text_data.html#min-tut-10-text
     porém, eu quebrei a cabeça, pois ainda aparecia os índices, coisa que eu não desejava, além disto, já tinha implementado o material anterior
     felizmente, eu descobri que esses índices são do próprio pandas, e não os índices do csv
-    mais tarde, para manipular estes dados, percebi que era melhor usar listas do que um dataframe
+    Até então, estava utilizando o to_frame(), como foi fornecido pelo material inicial. Mais tarde, para manipular estes dados, percebi que era melhor usar listas do que um dataframe
 
-16 -> counter permite realizar a contagem de elementos em uma estrutura de dados. A cada vez que é usado, retorna um objeto, que contém um dicionário com
+15 -> counter permite realizar a contagem de elementos em uma estrutura de dados. A cada vez que é usado, retorna um objeto, que contém um dicionário com
     todos os caracteres e quantas veses ele se repete.
     Quando se usa o .most_common(), retorna tupla que contém o char mais repetido, com a quantidade de vezes que ele aparece, no caso, na lista.
-    Counter(frase.lower().replace(' ', '')) for frase in db for frase in frases).most_common(2), deste modo, está retornando os 2 caracteres que mais se
-    repetem em todos os 605 trava-línguas.
+    A minha ideia era que iria retornar apenas as letras mais repetidadas em cada trava-língua, entretanto, como dito anteriormente, retornou os char's mais repetidos,
+    incluido o espaço. Para resolver este problema, precisei usar algo que convertesse os espaços ou os desconsiderasse. A primeira alternativa ficou válida com a função
+    .replace(' ', '')
+    Depois disto, precisava pegar as letras mais repetidas em cada trava-língua. Eu criei a seguinte função:
+    Counter(frase.lower().replace(' ', '')).most_common(2) for frase in db). Porém, deste modo, retornava os 2 caracteres que mais se
+    repetem em todos os 605 trava-línguas. Porém, o que eu precisava era os chars mais repetidos em cada frase, aí veio a seguinte solução:
     for frase in db:
-        lista.append(Counter(frase.lower().replace(' ', ''))).most_common(2)), já assim retorna os 2 caracteres que mais se repetem para cada uma das 605 frases
-    Por este motivo, fui forçado a utilizar o for normal, sem list compration, pois a medida de complexidade de um trava-língua é feita, obviamente, por cada
+        lista.append(Counter(frase.lower().replace(' ', '')).most_common(2)) for frase in db), já assim retorna os 2 caracteres que mais se repetem para cada uma das 605 frases
+    Por este motivo, fui forçado a utilizar o for normal, sem list comprehation, pois a medida de complexidade de um trava-língua é feita, obviamente, por cada
     unidade, e não pela totalidade deles.
-    Agora eu percebi que posso usar list comprehation com o Counter, deste modo: [Counter(frase.lower().replace(' ', '')) for frase in db]. Assim, retorna uma
-    lista das letras que mais se repetem para cada trava-língua.
-    Decidi mudar o retorno, para ficar mais fácil de calcular o grau de dificuldade posteriormente
+    Agora eu percebi que posso usar list comprehation com o Counter, deste modo: [Counter(frase.lower().replace(' ', '')).most_common(2) for frase in db]. Assim, retorna uma
+    lista das letras que mais se repetem para cada trava-língua. Tive dificuldade em virar a chave que era necessário colocar os colchetes para transformar tudo em uma lista.
 
+18 -> Percebi que apenas retornar a lista que contém listas de tuplas das letras mais repetidas era redundante, pois eu precisava de um número que medisse a dificuldade. Então, eu refatorei
+    o código, criando uma função auxiliar para buscar as letras mais repetidas e calcular o grau de frequência em outra.
+
+31 e 35 -> Agora desafiei-me um pouco mais hehehe. Percebi que não bastava apenas ter os dados do trava-língua, queria saber qual é o mais difícil e o mais fácil de todos. Essa parte foi
+    de nível médio para fácil, mas o que me fez refletir bastante foi o seguinte: existem 2 formas (ao menos pensei apenas nelas) de descobrir o mais fácil e o mais difícil trava-língua:
+    manualmente e com um robô que te obedece. Da primeira forma, iria demorar muito tempo mesmo. Já a segunda, eu fiz isto muito, mas muito rápido, quando comparado a primeira. Olha que incríel,
+    os meus superpoderes de programador permitiram que pudesse encontrar com agilidade o trava-língua mais difícil!
 
     Roteiro de apresentação:
-A percebi que a dificuldade de um trava-língua se baseia em seu tamanho e pelo grau de repetição de letras.
+A percebi que a dificuldade de um trava-língua se baseia no seu tamanho e pelo grau de repetição de letras.
 Para calcular o grau de repetição das letras:
     1 - primeiro contar quantas palavras existem
     2 - descobrir quais são as 2 letras mais comuns
     3 - descobrir o grau de repetição destas 2 letras no trava-língua e multiplicar este resultado
-    4 - multiplicar o resultado anterior com a quantidade de palavras existentes, resultando em um valor que quanto maior, mais difícil é
+    4 - multiplicar o resultado anterior com a quantidade de palavras existentes, resultando num valor que quanto maior, mais difícil é e vice-versa.
